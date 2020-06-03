@@ -19,6 +19,15 @@ In `package.json`:
 
 ## Vue Usage
 
+```html
+<!-- Example Call -->
+<template>
+  <div>
+    URL: {{getRequestUrl}}
+  </div>
+</template>
+```
+
 ```js
 import {RsvpClient} from 'rsvp-client';
 
@@ -28,11 +37,13 @@ const payload = {
 };
 
 // Getting URL ->
-asyncComputed: {
-  async getRequestUrl() {
-    const rsvpClient = new RsvpClient();
-    const results = await rsvpClient.createRequest({payload});
-    return results.data.url;
+export default {
+  asyncComputed: {
+    async getRequestUrl() {
+      const rsvpClient = new RsvpClient();
+      const results = await rsvpClient.createRequest({payload});
+      return results.data.url;
+    }
   }
 }
 ```
