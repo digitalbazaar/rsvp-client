@@ -22,6 +22,11 @@ In `package.json`:
 ```js
 import {RsvpClient} from 'rsvp-client';
 
+const payload = {
+  ttl: 300000,
+  type: 'someType'
+};
+
 // Getting URL ->
 asyncComputed: {
   async getRequestUrl() {
