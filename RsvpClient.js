@@ -26,4 +26,6 @@ export class RsvpClient {
     const {baseUrl, defaultHeaders: headers, httpsAgent} = this;
     return axios.post(baseUrl, payload, {headers, httpsAgent});
   }
+
+  // Set up steam here
 }
