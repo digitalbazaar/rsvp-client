@@ -27,5 +27,7 @@ export class RsvpClient {
     return axios.post(baseUrl, payload, {headers, httpsAgent});
   }
 
-  // Set up steam here
+  getEventStream({url} = {}) {
+    return new EventSource(url);
+  }
 }
