@@ -1,8 +1,6 @@
 /*
  * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
  */
-'use strict';
-
 import rsvpSpec from 'rsvp-spec';
 
 const Ajv = require('ajv');
