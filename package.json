@@ -1,6 +1,6 @@
 {
-  "name": "rsvp-client",
-  "version": "1.0.0",
+  "name": "@digitalbazaar/rsvp-client",
+  "version": "0.0.1-0",
   "description": "RSVP Client",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "@digitalbazaar/http-client": "^1.0.0",
     "esm": "^3.2.22",
     "rsvp-spec": "github:digitalbazaar/rsvp-spec#initial"
   },
