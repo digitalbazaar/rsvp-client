@@ -1,10 +1,8 @@
 /*!
  * Copyright (c) 2020 Digital Bazaar, Inc. All rights reserved.
  */
-import axios from 'axios';
+import {httpClient, DEFAULT_HEADERS} from '@digitalbazaar/http-client';
 import {validateSchema} from './validator';
-
-const DEFAULT_HEADERS = {Accept: 'application/ld+json, application/json'};
 
 export class RsvpClient {
   constructor({
@@ -24,10 +22,32 @@ export class RsvpClient {
       await validateSchema({payload});
     }
     const {baseUrl, defaultHeaders: headers, httpsAgent} = this;
-    return axios.post(baseUrl, payload, {headers, httpsAgent});
+    const result = await httpClient.post(baseUrl, {
+      headers, json: payload, agent: httpsAgent
+    });
+    return result.data;
   }
 
-  getEventStream({url} = {}) {
-    return new EventSource(url);
+  // TODO: implement additional error handling and timeout
+  async getResponse({url} = {}) {
+    return new Promise((resolve, reject) => {
+      const eventStream = new EventSource(url);
+      eventStream.onmessage = event => {
+        let data;
+        try {
+          (data = JSON.parse(event.data));
+        } catch(e) {
+          eventStream.close();
+          return reject(e);
+        }
+        eventStream.close();
+        resolve(data);
+      };
+
+      eventStream.onerror = error => {
+        eventStream.close();
+        reject(error);
+      };
+    });
   }
 }
