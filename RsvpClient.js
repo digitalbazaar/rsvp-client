@@ -35,7 +35,7 @@ export class RsvpClient {
       eventStream.onmessage = event => {
         let data;
         try {
-          (data = JSON.parse(event.data));
+          data = JSON.parse(event.data);
         } catch(e) {
           eventStream.close();
           return reject(e);
