@@ -29,10 +29,9 @@ In `package.json`:
 ```
 
 ```js
-import {RsvpClient} from 'rsvp-client';
+import {RsvpClient} from '@digitalbazaar/rsvp-client';
 
 const payload = {
-  ttl: 300000,
   type: 'someType'
 };
 
@@ -41,8 +40,8 @@ export default {
   asyncComputed: {
     async getRequestUrl() {
       const rsvpClient = new RsvpClient();
-      const results = await rsvpClient.createRequest({payload});
-      return results.data.url;
+      const result = await rsvpClient.createRequest({payload});
+      return result.url;
     }
   }
 }
