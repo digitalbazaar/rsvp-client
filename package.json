@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@digitalbazaar/http-client": "^1.0.0",
+    "ajv": "^7.0.3",
     "esm": "^3.2.22",
     "rsvp-spec": "github:digitalbazaar/rsvp-spec#initial"
   },
