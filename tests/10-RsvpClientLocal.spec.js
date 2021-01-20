@@ -24,9 +24,7 @@ describe('RSVP Client Local', () => {
         err.errors.should.have.length(1);
         const {errors: [error]} = err;
         error.dataPath.should.equal('');
-        error.message.should.equal(
-          `should have required property 'type'`
-        );
+        error.message.should.equal(`should have required property 'type'`);
       }
     );
   });

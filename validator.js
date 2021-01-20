@@ -4,7 +4,7 @@
 import rsvpSpec from 'rsvp-spec';
 
 import Ajv from 'ajv';
-const ajv = new Ajv({verbose: true, removeAdditional: true});
+const ajv = new Ajv({verbose: true, strict: 'log'});
 ajv.addSchema(rsvpSpec.rsvp, 'rsvp.json');
 
 // throws if validation fails
