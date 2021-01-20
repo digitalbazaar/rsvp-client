@@ -3,7 +3,7 @@
  */
 import rsvpSpec from 'rsvp-spec';
 
-const Ajv = require('ajv');
+import Ajv from 'ajv';
 const ajv = new Ajv({verbose: true, removeAdditional: true});
 ajv.addSchema(rsvpSpec.rsvp, 'rsvp.json');
 
